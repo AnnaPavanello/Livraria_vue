@@ -13,7 +13,7 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #e4bcc6; /* Deixa o fundo escuro do jeito que estava na imagem */
-  color: #ffffff;            /* Garante que os textos padrões fiquem brancos */
+  background-color: #b44670; /* Deixa o fundo escuro do jeito que estava na imagem */
+  color: #000000;            /* Garante que os textos padrões fiquem brancos */
 }
 </style>

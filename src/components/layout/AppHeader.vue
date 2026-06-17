@@ -17,7 +17,7 @@ defineProps({
 <style scoped>
 header{
   background:#e0509f;
-  color:white;
+  color:rgb(0, 0, 0);
   padding:20px;
 
   display:flex;
