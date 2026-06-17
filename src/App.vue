@@ -1,10 +1,9 @@
 <template>
-  <!-- O RouterView é o que faz o HomeView aparecer aqui dentro -->
   <RouterView />
 </template>
 
 <style>
-/* Seu CSS original e global fica aqui para aplicar em todas as páginas */
+/* Reset global para limpar qualquer layout herdado */
 * {
   margin: 0;
   padding: 0;
@@ -13,7 +12,10 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #b44670; /* Deixa o fundo escuro do jeito que estava na imagem */
-  color: #000000;            /* Garante que os textos padrões fiquem brancos */
+  background-color: #1a1a1a;
+  color: #fff;
+  
+  /* ESTA LINHA É O SEGREDO: impede que o AppHeader e o Container fiquem lado a lado */
+  display: block !important; 
 }
 </style>

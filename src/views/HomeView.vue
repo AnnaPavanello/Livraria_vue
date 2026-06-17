@@ -94,6 +94,6 @@ const cartQuantity = computed(() => {
 }
 h2 {
   margin-bottom: 20px;
-  color: #000000; /* Ajuste a cor do texto se o seu fundo for escuro */
+  color: #ffffff; /* Ajuste a cor do texto se o seu fundo for escuro */
 }
 </style>
