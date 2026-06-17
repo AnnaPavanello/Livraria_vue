@@ -11,6 +11,9 @@ const emit = defineEmits(['add'])
     <img :src="product.capa" alt="Capa do livro">
     <h3>{{ product.titulo }}</h3>
     <p class="autor">{{ product.autor }}</p>
+    
+    <p v-if="product.resenha" class="resenha">{{ product.resenha }}</p>
+    
     <p class="preco">R$ {{ product.preco.toFixed(2) }}</p>
     <button @click="emit('add', product)">
       Adicionar
@@ -26,6 +29,9 @@ const emit = defineEmits(['add'])
   text-align: center;
   background-color: #242424;
   box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 img {
@@ -47,14 +53,24 @@ h3 {
   margin-bottom: 8px;
 }
 
+/* ESTILO DA RESENHA */
+.resenha {
+  color: #888;
+  font-size: 0.8rem;
+  font-style: italic;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
 .preco {
   font-weight: bold;
   color: #fff;
   margin-bottom: 12px;
+  margin-top: auto; /* Empurra o preço e o botão sempre para o rodapé */
 }
 
 button {
-  background-color: #e0509f; /* Mesmo tom de rosa do seu cabeçalho */
+  background-color: #e0509f;
   color: white;
   border: none;
   padding: 8px 15px;

@@ -1,7 +1,7 @@
 <script setup>
 import { ref, computed } from 'vue'
 
-// Ajustamos o caminho dos imports adicionando '../' porque agora estamos dentro da pasta views
+// Imports dos componentes com o caminho correto
 import AppHeader from '../components/layout/AppHeader.vue'
 import ProductList from '../components/products/ProductList.vue'
 import CartPanel from '../components/cart/CartPanel.vue'
@@ -12,44 +12,31 @@ import { getCartTotal } from '../utils/CartUtils'
 const cart = ref([])
 
 function addToCart(product) {
-  const item = cart.value.find(
-    p => p.id === product.id
-  )
-
+  const item = cart.value.find(p => p.id === product.id)
   if (item) {
     item.quantity++
   } else {
-    cart.value.push({
-      ...product,
-      quantity: 1
-    })
+    cart.value.push({ ...product, quantity: 1 })
   }
 }
 
 function increase(id) {
-  const item = cart.value.find(
-    p => p.id === id
-  )
-
-  if (item) {
-    item.quantity++
-  }
+  const item = cart.value.find(p => p.id === id)
+  if (item) item.quantity++
 }
 
 function decrease(id) {
-  const item = cart.value.find(
-    p => p.id === id
-  )
-
-  if (item && item.quantity > 1) {
-    item.quantity--
-  }
+  const item = cart.value.find(p => p.id === id)
+  if (item && item.quantity > 1) item.quantity--
 }
 
 function remove(id) {
-  cart.value = cart.value.filter(
-    p => p.id !== id
-  )
+  cart.value = cart.value.filter(p => p.id !== id)
+}
+
+// ESTA É A FUNÇÃO QUE LIMPA OS LIVROS
+function limparCarrinho() {
+  cart.value = []
 }
 
 const total = computed(() => {
@@ -57,9 +44,7 @@ const total = computed(() => {
 })
 
 const cartQuantity = computed(() => {
-  return cart.value.reduce((total, item) => {
-    return total + item.quantity
-  }, 0)
+  return cart.value.reduce((total, item) => total + item.quantity, 0)
 })
 </script>
 
@@ -69,10 +54,7 @@ const cartQuantity = computed(() => {
   <div class="container">
     <div class="products">
       <h2>Bem-vindo à Livraria</h2>
-      <ProductList
-        :products="products"
-        @add="addToCart"
-      />
+      <ProductList :products="products" @add="addToCart" />
     </div>
 
     <CartPanel
@@ -81,6 +63,7 @@ const cartQuantity = computed(() => {
       @increase="increase"
       @decrease="decrease"
       @remove="remove"
+      @limparCarrinho="limparCarrinho"
     />
   </div>
 </template>
@@ -94,6 +77,6 @@ const cartQuantity = computed(() => {
 }
 h2 {
   margin-bottom: 20px;
-  color: #ffffff; /* Ajuste a cor do texto se o seu fundo for escuro */
+  color: #ffffff;
 }
 </style>

@@ -1,24 +1,21 @@
 <script setup>
-// Definindo o que o carrinho recebe do componente pai
 const props = defineProps({
   cart: Array,
   total: Number
 })
 
-// Definindo os eventos que o carrinho consegue disparar
 const emit = defineEmits(['increase', 'decrease', 'remove', 'limparCarrinho'])
 
-// Função para finalizar a compra com a mensagem personalizada
 function finalizarCompra() {
   if (props.cart.length === 0) {
     alert('Seu carrinho está vazio! Adicione algum livro antes de finalizar.')
     return
   }
   
-  // Mensagem de sucesso solicitada
+  // Exibe o seu alerta personalizado
   alert('🎉 A compra foi finalizada, parabéns pela compra!')
   
-  // Avisa o HomeView para limpar o carrinho
+  // Dispara o evento para o HomeView limpar a lista
   emit('limparCarrinho') 
 }
 </script>
@@ -27,12 +24,10 @@ function finalizarCompra() {
   <div class="cart-panel">
     <h2>Carrinho</h2>
 
-    <!-- Mensagem caso o carrinho não tenha produtos -->
     <div v-if="cart.length === 0" class="empty-cart">
       Seu carrinho está vazio.
     </div>
 
-    <!-- Lista de produtos adicionados -->
     <div v-else>
       <div class="cart-items">
         <div v-for="item in cart" :key="item.id" class="cart-item">
@@ -50,12 +45,10 @@ function finalizarCompra() {
         </div>
       </div>
 
-      <!-- Exibição do valor total -->
       <div class="cart-total">
         <h3>Total: <span>R$ {{ total.toFixed(2) }}</span></h3>
       </div>
 
-      <!-- Botão para concluir o pedido -->
       <button class="btn-checkout" @click="finalizarCompra">
         Finalizar Compra
       </button>
@@ -151,7 +144,7 @@ h2 {
 }
 
 .btn-checkout {
-  background-color: #e0509f; /* Rosa idêntico ao cabeçalho */
+  background-color: #e0509f;
   color: white;
   border: none;
   padding: 12px;

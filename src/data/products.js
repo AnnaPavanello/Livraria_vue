@@ -7,6 +7,7 @@ export const products = [
       'Hannah, faz um acordo com Garrett, astro do hóquei da universidade: ela o ajuda a melhorar suas notas e ele a ajuda a chamar a atenção de outro garoto. O plano se transforma em um romance intenso e divertido.',
     preco: 79.90,
     capa: 'https://m.media-amazon.com/images/I/81z+0LS86bL._AC_UF1000,1000_QL80_.jpg',
+    resenha: 'Hannah Wells e Garrett Graham fazem um acordo que parece simples: ela o ajuda a melhorar suas notas, e ele a ajuda a conquistar outro garoto. Porém, conforme passam mais tempo juntos, a amizade entre os dois se transforma em algo muito maior. Um romance universitário leve, divertido e envolvente, cheio de química e momentos emocionantes. Classificação Indicativa: 16 anos.'
   },
   {
     id: 2,
